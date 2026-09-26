@@ -1,5 +1,5 @@
 import { ArrowUpRight, Boxes, Code2, Github, Globe2, Lightbulb, Radio, Sparkles, Users } from "lucide-react";
-import { SiteNav } from "@/components/SiteNav";
+import { SiteNav } from "../components/SiteNav";
 
 const projects=[
  {name:"SparkRelay",tag:"Organization",description:"A home for small ideas that deserve to become useful software.",icon:Sparkles},
