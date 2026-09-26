@@ -1,12 +1,47 @@
 "use client";
+
 import { Moon, Sparkles, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-type Mode="auto"|"light"|"dark";
-const timed=()=>{const h=new Date().getHours();return h>=7&&h<19?"light":"dark"};
-const apply=(m:Mode)=>{const t=m==="auto"?timed():m;document.documentElement.classList.toggle("dark",t==="dark");document.documentElement.style.colorScheme=t};
-export function ThemeToggle(){
- const [mode,setMode]=useState<Mode>("auto");
- useEffect(()=>{const s=localStorage.getItem("sparkrelay-theme");const m=s==="light"||s==="dark"||s==="auto"?s:"auto";setMode(m);apply(m)},[]);
- const next=mode==="auto"?"light":mode==="light"?"dark":"auto"; const Icon=mode==="auto"?Sparkles:mode==="light"?Sun:Moon;
- return <button className="button" onClick={()=>{setMode(next);localStorage.setItem("sparkrelay-theme",next);apply(next)}}><Icon size={15}/><span className="theme-label">{mode}</span></button>
+
+type Mode = "auto" | "light" | "dark";
+
+const timed = () => {
+  const hour = new Date().getHours();
+  return hour >= 7 && hour < 19 ? "light" : "dark";
+};
+
+const apply = (mode: Mode) => {
+  const target = mode === "auto" ? timed() : mode;
+  document.documentElement.classList.toggle("dark", target === "dark");
+  document.documentElement.style.colorScheme = target;
+};
+
+export function ThemeToggle() {
+  const [mode, setMode] = useState<Mode>("auto");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("sparkrelay-theme");
+    const initialMode = stored === "light" || stored === "dark" || stored === "auto" ? stored : "auto";
+    setMode(initialMode);
+    apply(initialMode);
+  }, []);
+
+  const nextMode = mode === "auto" ? "light" : mode === "light" ? "dark" : "auto";
+  const Icon = mode === "auto" ? Sparkles : mode === "light" ? Sun : Moon;
+
+  return (
+    <button
+      type="button"
+      className="button"
+      aria-label={`Switch theme mode. Current mode: ${mode}`}
+      onClick={() => {
+        setMode(nextMode);
+        localStorage.setItem("sparkrelay-theme", nextMode);
+        apply(nextMode);
+      }}
+    >
+      <Icon size={15} />
+      <span className="theme-label">{mode}</span>
+    </button>
+  );
 }
