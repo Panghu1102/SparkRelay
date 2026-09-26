@@ -1,4 +1,4 @@
-import { siteMeta } from "@/lib/site-content";
+import { siteMeta } from "../lib/site-content";
 
 export function SiteFooter() {
   return (

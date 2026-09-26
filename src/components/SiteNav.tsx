@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Github, Sparkles } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import { navItems, siteMeta } from "@/lib/site-content";
+import { navItems, siteMeta } from "../lib/site-content";
 
 export function SiteNav() {
   const pathname = usePathname();

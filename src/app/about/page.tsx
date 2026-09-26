@@ -1,6 +1,6 @@
-import { SiteNav } from "@/components/SiteNav";
-import { SiteFooter } from "@/components/SiteFooter";
-import { highlights, principles } from "@/lib/site-content";
+import { SiteNav } from "../../components/SiteNav";
+import { SiteFooter } from "../../components/SiteFooter";
+import { highlights, principles } from "../../lib/site-content";
 
 export default function AboutPage() {
   return (

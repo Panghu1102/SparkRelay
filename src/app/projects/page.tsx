@@ -1,7 +1,7 @@
 import { Github } from "lucide-react";
-import { SiteNav } from "@/components/SiteNav";
-import { SiteFooter } from "@/components/SiteFooter";
-import { projects, siteMeta } from "@/lib/site-content";
+import { SiteNav } from "../../components/SiteNav";
+import { SiteFooter } from "../../components/SiteFooter";
+import { projects, siteMeta } from "../../lib/site-content";
 
 export default function ProjectsPage() {
   return (
